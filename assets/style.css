@@ -1,0 +1,276 @@
+/* GlowAroma — ароматы для дома. Тёплая тёмная тема, выведена из реального логотипа. */
+
+@font-face{font-family:Manrope;src:url(fonts/Manrope-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Manrope;src:url(fonts/Manrope-ExtraBold.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/Inter-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/Inter-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --ink:#180F0D;          /* фон основной */
+  --ink-deep:#120B0A;     /* подвал */
+  --ink-alt:#150C0B;      /* фон секции */
+  --card:#231613;         /* карточка */
+  --line:rgba(247,240,236,.09);
+  --flame:#FF4D26;
+  --amber:#FF9838;
+  --crimson:#C6262C;
+  --text:#F7F0EC;
+  --muted:#B3A39C;
+  --dim:#8C7A72;
+  --grad:linear-gradient(100deg,var(--flame),var(--amber));
+  --col:1240px;
+  --r:20px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;background:var(--ink);color:var(--text);
+  font:400 clamp(15px,.4vw + 14px,17px)/1.65 Inter,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+p,figure{margin:0}
+h1,h2,h3,h4{font-family:Manrope,system-ui,sans-serif;margin:0;font-weight:800;letter-spacing:-.025em;line-height:1.1}
+a{color:var(--amber);text-decoration:none;transition:color .2s}
+a:hover{color:#FFC79B}
+::selection{background:var(--flame);color:var(--ink)}
+:focus-visible{outline:2px solid var(--flame);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--col);margin:0 auto;padding-inline:clamp(20px,4vw,40px)}
+section{padding-block:clamp(64px,7vw,104px)}
+.alt{background:var(--ink-alt);border-block:1px solid var(--line)}
+
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600;font-family:Inter}
+h2{font-size:clamp(30px,3.4vw,46px)}
+.lede{margin-top:20px;max-width:56ch;color:var(--muted);font-size:clamp(15px,.4vw + 14px,16.5px)}
+
+/* — шапка — */
+header{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;
+  justify-content:space-between;padding:14px clamp(20px,4vw,40px);
+  background:rgba(24,15,13,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,152,56,.14);
+}
+header img{height:26px;width:auto}
+header nav{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:500}
+header nav a{color:var(--muted)}
+header nav a:hover{color:var(--text)}
+
+.btn{
+  display:inline-block;padding:14px 26px;border-radius:14px;background:var(--grad);
+  color:#20100A;font-family:Manrope;font-weight:800;font-size:15px;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn:hover{color:#20100A;transform:translateY(-2px);box-shadow:0 10px 30px -12px rgba(255,77,38,.7)}
+.btn.sm{padding:11px 20px;font-size:14px}
+.btn.ghost{background:none;border:1px solid rgba(255,77,38,.55);color:var(--amber)}
+.btn.ghost:hover{color:#FFC79B;border-color:var(--amber);box-shadow:none}
+.btn.line{background:none;border:1px solid rgba(247,240,236,.22);color:var(--text)}
+.btn.line:hover{color:var(--text);border-color:var(--text);box-shadow:none}
+
+/* — герой — */
+.hero{position:relative;overflow:hidden;padding-block:clamp(64px,8vw,96px)}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:url(gen/hero-atmosphere.jpg) center/cover no-repeat;
+  opacity:.85;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,var(--ink) 8%,rgba(24,15,13,.55) 52%,rgba(24,15,13,.15));
+}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,56px);align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 14px;
+  border:1px solid rgba(255,152,56,.32);border-radius:999px;font-size:12.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--amber);font-weight:600;
+}
+.tag span{width:6px;height:6px;border-radius:50%;background:var(--flame)}
+h1{margin:26px 0 0;font-size:clamp(40px,5.2vw,76px);line-height:1.02;letter-spacing:-.03em}
+h1 em{
+  font-style:normal;background:linear-gradient(96deg,var(--flame),var(--amber) 58%,#E23A1E);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-bottom:.08em;display:inline-block;
+}
+.hero p{margin-top:24px;max-width:52ch;color:#E0D2CB;font-size:clamp(16px,.5vw + 15px,18px)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,36px);margin-top:46px;padding-top:28px;border-top:1px solid rgba(247,240,236,.1)}
+.stats b{display:block;font-family:Manrope;font-weight:800;font-size:clamp(24px,2vw,30px);letter-spacing:-.02em}
+.stats span{font-size:13px;color:var(--muted)}
+.hero figure{margin:0;position:relative}
+.hero figure::before{
+  content:"";position:absolute;inset:-6% -4%;filter:blur(6px);
+  background:radial-gradient(closest-side,rgba(198,38,44,.42),transparent 72%);
+}
+.hero figure img{position:relative;width:100%;border-radius:22px;border:1px solid rgba(247,240,236,.1)}
+
+/* — лента фактов — */
+.facts{padding-block:22px;background:var(--ink-alt);border-block:1px solid var(--line);font-size:14.5px;color:#E0D2CB}
+.facts .wrap{display:flex;flex-wrap:wrap;gap:14px 44px;justify-content:space-between}
+
+/* — сетки — */
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px)}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+
+.tile{padding:26px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.tile h3{font-size:17px;letter-spacing:-.01em}
+.tile p{margin-top:10px;font-size:15px;color:var(--muted)}
+.pill{padding:18px 16px;border-radius:14px;border:1px solid rgba(255,152,56,.2);background:rgba(255,152,56,.05)}
+.pill b{font-family:Manrope;font-weight:800;font-size:15px;color:var(--amber)}
+.pill p{margin-top:8px;font-size:13px;line-height:1.5;color:var(--muted)}
+
+/* — ароматы — */
+.scent{padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.swatch{display:block;width:34px;height:34px;border-radius:10px}
+.scent b{display:block;margin-top:16px;font-family:Manrope;font-weight:800;font-size:16.5px}
+.scent span{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
+.note{margin-top:22px;font-size:13.5px;color:var(--dim)}
+
+/* — каталог — */
+.catalog{display:grid;gap:28px;margin-top:38px}
+.item{display:grid;border-radius:24px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.item.wide{grid-template-columns:.9fr 1.1fr}
+.item.wide.flip{grid-template-columns:1.1fr .9fr}
+.item.lead{border-color:rgba(255,77,38,.26)}
+.shot{position:relative;background:#F4F1EE;display:flex;align-items:center;justify-content:center;padding:24px;min-height:280px}
+.shot img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.badge{
+  position:absolute;top:20px;left:20px;padding:7px 13px;border-radius:999px;
+  background:var(--grad);color:#20100A;font-family:Manrope;font-weight:800;font-size:12.5px;
+}
+.body{padding:clamp(26px,3vw,38px);display:flex;flex-direction:column}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.rating{padding:5px 11px;border-radius:8px;background:rgba(255,152,56,.12);color:var(--amber);font-weight:700}
+.new{padding:5px 11px;border-radius:8px;background:rgba(198,38,44,.18);color:#FFB77A;font-weight:700}
+.item h3{margin:16px 0 0;font-size:clamp(21px,1.8vw,28px);line-height:1.16}
+.price{display:flex;align-items:baseline;gap:10px;margin-top:14px}
+.price b{font-family:Manrope;font-weight:800;font-size:clamp(24px,2vw,30px)}
+.price span{font-size:13.5px;color:var(--dim)}
+.item p{margin-top:18px;color:#E0D2CB;font-size:clamp(15px,.4vw + 14px,16px)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px;padding-top:24px;border-top:1px solid rgba(247,240,236,.1)}
+.specs h4{font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--amber);font-weight:700;font-family:Inter}
+.specs ul,.plain{margin:12px 0 0;padding-left:18px;font-size:14.5px;line-height:1.62;color:var(--muted)}
+.plain{margin-top:18px}
+.specs li,.plain li{margin-top:6px}
+.hint{
+  margin-top:22px;padding:16px 18px;border-radius:14px;font-size:14.5px;line-height:1.6;
+  background:rgba(255,77,38,.09);border:1px solid rgba(255,77,38,.24);color:#F5DCCC;
+}
+.hint b{color:#FF8A4C}
+.hint.warn{background:rgba(198,38,44,.1);border-color:rgba(198,38,44,.28);color:#F0D9CE}
+.hint.warn b{color:#FFB77A}
+.item .btn{margin-top:24px;align-self:flex-start}
+.soon{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:radial-gradient(120% 90% at 50% 0,rgba(198,38,44,.28),transparent 62%),var(--ink-alt);
+  color:var(--dim);font-size:13px;text-align:center;
+}
+.soon svg{width:54px;height:54px;opacity:.5}
+
+/* — шаги — */
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:20px;padding:26px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.step b{
+  flex:none;width:40px;height:40px;border-radius:12px;background:var(--grad);color:#20100A;
+  display:flex;align-items:center;justify-content:center;font-family:Manrope;font-weight:800;
+}
+.step h3{font-size:18px;letter-spacing:-.01em}
+.step p{margin-top:8px;font-size:15px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.chips span{padding:9px 15px;border-radius:999px;border:1px solid rgba(247,240,236,.16);font-size:14px;color:#E0D2CB}
+
+/* — сценарии — */
+.scene{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:380px;display:flex}
+.scene img{position:absolute;inset:0;width:100%;height:100%!important;object-fit:cover;transition:transform .6s ease}
+.scene:hover img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.scene img{transition:none}.scene:hover img{transform:none}}
+.scene figcaption{
+  position:relative;margin-top:auto;padding:24px;width:100%;
+  background:linear-gradient(transparent,rgba(18,11,10,.86) 42%);
+}
+.scene h3{font-size:18px}
+.scene p{margin-top:8px;font-size:14.5px;color:#D8C9C2}
+
+/* — рейтинги — */
+.score{padding:30px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+.score b{display:block;font-family:Manrope;font-weight:800;font-size:44px;letter-spacing:-.03em;color:var(--amber)}
+.score strong{display:block;margin-top:8px;font-size:15px;font-weight:400;color:#E0D2CB}
+.score span{display:block;margin-top:4px;font-size:13.5px;color:var(--dim)}
+
+/* — FAQ — */
+.faq{display:grid;gap:14px}
+.faq details{padding:22px 26px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;font-family:Manrope;font-weight:800;font-size:17.5px;
+  display:flex;justify-content:space-between;gap:16px;align-items:flex-start;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--amber);font-size:22px;line-height:1;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:12px;font-size:15.5px;color:var(--muted)}
+
+/* — где купить — */
+.buy{
+  position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(255,152,56,.24);
+  background:#20130F;padding:clamp(32px,4vw,56px) clamp(24px,4vw,48px);
+}
+.buy::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(620px 320px at 12% 10%,rgba(255,77,38,.2),transparent 62%),
+             radial-gradient(560px 340px at 88% 90%,rgba(198,38,44,.26),transparent 62%);
+}
+.buy>div{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,48px);align-items:center}
+.rows{display:grid;gap:12px}
+.rows div{display:flex;justify-content:space-between;gap:16px;padding:16px 20px;border-radius:14px;background:rgba(247,240,236,.05);font-size:15px}
+.rows span{color:var(--muted)}
+.rows b{font-family:Manrope;font-weight:800}
+.pending{
+  padding:14px 26px;border-radius:14px;border:1px dashed rgba(247,240,236,.24);
+  color:var(--dim);font-family:Manrope;font-weight:800;font-size:15px;display:inline-block;
+}
+
+/* — подвал — */
+footer{padding:64px clamp(20px,4vw,40px) 48px;background:var(--ink-deep);border-top:1px solid var(--line)}
+footer .cols{max-width:var(--col);margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:44px}
+footer img{height:30px;width:auto}
+footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:700;font-family:Inter}
+footer .links{display:grid;gap:10px;margin-top:16px;font-size:15px;color:#E0D2CB}
+footer p{margin-top:18px;max-width:42ch;font-size:15px;color:var(--muted)}
+.legal{
+  max-width:var(--col);margin:44px auto 0;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:13px;color:var(--dim);
+}
+
+/* — появление при скролле; прячем только если JS точно есть, иначе контент виден всегда — */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+
+/* — адаптив — */
+@media (max-width:1080px){
+  .g4,.g5,.g3{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  header{flex-wrap:wrap;padding:12px 20px}
+  header nav{order:3;width:100%;overflow-x:auto;gap:20px;padding-bottom:2px}
+  .hero-grid,.split,.g2,.item.wide,.item.wide.flip,.buy>div,footer .cols{grid-template-columns:1fr}
+  .hero figure{order:-1}
+  .specs{grid-template-columns:1fr}
+  .hero::after{background:linear-gradient(180deg,rgba(24,15,13,.72),rgba(24,15,13,.92))}
+}
+@media (max-width:560px){
+  .g4,.g5,.g3{grid-template-columns:1fr}
+  .facts .wrap{gap:10px}
+  .scene{min-height:320px}
+}
+@media (min-width:1800px){
+  :root{--col:1440px}
+}
