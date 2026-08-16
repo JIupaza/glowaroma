@@ -1,1 +1,18 @@
+# секреты
 .env
+
+# внутренние материалы — остаются локально, наружу не уходят
+CLAUDE.md
+design-notes.md
+ПРОМПТ_для_сайта.md
+brand_spec.json
+Брендбук_GlowAroma.pdf
+content/
+kie_inputs/
+build_pdf.py
+fetch_fonts.py
+prep_photos.py
+compress_gen.py
+kie_run.sh
+kie_upload.py
+fonts/
