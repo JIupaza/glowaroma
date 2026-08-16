@@ -216,7 +216,7 @@ h3{font-size:clamp(16px,2vw,18px);letter-spacing:-.01em}
 .facts dt{font-size:13px;color:var(--dim)}
 .facts dd{font-size:13.5px;text-align:right;color:var(--text)}
 
-.ga{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.ga{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
 .ga-item{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--ink-2);aspect-ratio:4/3;padding:0}
 .ga-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .ga-item:hover img{transform:scale(1.06)}
@@ -284,7 +284,6 @@ h3{font-size:clamp(16px,2vw,18px);letter-spacing:-.01em}
 @media (min-width:640px){
   body{font-size:15.5px}
   .vals,.pcs,.scenes,.rvs{grid-template-columns:repeat(2,1fr)}
-  .ga{grid-template-columns:repeat(4,1fr)}
   .ftr-grid{grid-template-columns:1.4fr .8fr .8fr}
   .ftr-legal{grid-template-columns:auto 1fr;gap:24px;justify-content:space-between}
   .buy{grid-template-columns:1.2fr .8fr;align-items:center}
