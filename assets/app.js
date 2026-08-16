@@ -1,5 +1,5 @@
-/* GlowAroma — поведение сайта: меню, появление блоков, фильтры каталога,
-   галерея с лайтбоксом, видео по клику. Без библиотек. */
+/* GlowAroma — поведение сайта: меню, параллакс, галерея
+   с лайтбоксом, видео по клику. Без библиотек. */
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
@@ -35,31 +35,6 @@
         heroBg.style.transform = `translate3d(0,${y * 0.22}px,0) scale(${1 + y * 0.00012})`;
       });
     }, { passive: true });
-  }
-
-  /* ── фильтры каталога ── */
-  const grid = $('#grid');
-  if (grid) {
-    const chips = $$('.chip'), cards = $$('.pc', grid), empty = $('.empty');
-
-    const apply = (key, push) => {
-      chips.forEach(c => c.classList.toggle('on', c.dataset.f === key));
-      let shown = 0;
-      cards.forEach(card => {
-        const hit = key === 'all' || card.dataset.kind === key;
-        card.hidden = !hit;
-        if (hit) shown++;
-      });
-      if (empty) empty.hidden = shown > 0;
-      if (push) {
-        const url = key === 'all' ? location.pathname : `${location.pathname}?f=${key}`;
-        history.replaceState(null, '', url);
-      }
-    };
-
-    chips.forEach(c => c.addEventListener('click', () => apply(c.dataset.f, true)));
-    const start = new URLSearchParams(location.search).get('f');
-    if (start && chips.some(c => c.dataset.f === start)) apply(start, false);
   }
 
   /* ── галерея + лайтбокс ── */
