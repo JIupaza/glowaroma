@@ -16,3 +16,10 @@ compress_gen.py
 kie_run.sh
 kie_upload.py
 fonts/
+assets/wb/
+assets/ref/
+assets/gen/*.png
+wb_fetch.py
+build.py
+sitedata.py
+data/

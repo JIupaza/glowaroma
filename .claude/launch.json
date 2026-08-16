@@ -1,11 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "glowaroma",
-      "runtimeExecutable": "py",
-      "runtimeArgs": ["-m", "http.server", "5500"],
-      "port": 5500
-    }
+    { "name": "glowaroma", "runtimeExecutable": "py", "runtimeArgs": ["-m", "http.server", "8899"], "port": 8899 }
   ]
 }
