@@ -25,20 +25,36 @@
 
   /* ── появление блоков при скролле ── */
   const targets = $$('.reveal');
+  const show = (el, stagger) => {
+    if (el.classList.contains('in')) return;
+    if (stagger) {
+      const sibs = [...(el.parentElement?.children || [])].filter(c => c.classList.contains('reveal'));
+      el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 70 + 'ms';
+    }
+    el.classList.add('in');
+  };
+
   if (calm || !('IntersectionObserver' in window)) {
-    targets.forEach(t => t.classList.add('in'));
+    targets.forEach(t => show(t, false));
   } else {
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const sibs = [...(el.parentElement?.children || [])].filter(c => c.classList.contains('reveal'));
-        el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 70 + 'ms';
-        el.classList.add('in');
-        obs.unobserve(el);
+        show(entry.target, true);
+        obs.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
     targets.forEach(t => io.observe(t));
+
+    // Страховка: в фоновой вкладке наблюдатель может не сработать вовремя.
+    // Всё, что попало в экран, показываем принудительно — контент важнее анимации.
+    const sweep = () => targets.forEach(t => {
+      if (t.getBoundingClientRect().top < innerHeight * 1.1) show(t, true);
+    });
+    addEventListener('scroll', sweep, { passive: true });
+    addEventListener('resize', sweep, { passive: true });
+    setTimeout(sweep, 900);
+    setTimeout(() => targets.forEach(t => show(t, false)), 6000);
   }
 
   /* ── лёгкий параллакс фона героя ── */
