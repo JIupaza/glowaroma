@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#140D0B">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/Manrope-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=cecf088e">
+<link rel="stylesheet" href="assets/style.css?v=6951763e">
 </head>
 <body>
 <a class="skip" href="#main">К содержимому</a>
@@ -22,7 +22,10 @@
     <img src="assets/logo-color.png" alt="GlowAroma" width="150" height="26">
   </a>
   <nav class="nav"><a href="catalog.html">Каталог</a><a href="otzyvy.html">Отзывы</a><a href="chestno.html">Честно о минусах</a><a href="index.html#kak" class="on">Как использовать</a></nav>
-  <a class="btn btn-sm" href="https://www.wildberries.ru/catalog/0/search.aspx?search=glowaroma" target="_blank" rel="noopener">Купить на WB</a>
+  <div class="hdr-buy">
+    <a class="btn btn-sm" href="https://www.wildberries.ru/catalog/0/search.aspx?search=glowaroma" target="_blank" rel="noopener">Купить на WB</a>
+    <a class="btn btn-sm btn-line" href="https://www.ozon.ru/seller/glowaroma/" target="_blank" rel="noopener">На Ozon</a>
+  </div>
   <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
 </header>
 
@@ -83,7 +86,7 @@
     <div class="pcs">
       <a class="pc reveal" href="tovar/nabor-8-klassika.html" style="--a:#E8B15C;--a2:#B8863A">
         <div class="pc-img"><img src="assets/img/p-black8.jpg" alt="Классический набор, 8 × 10 мл" loading="lazy" decoding="async"></div>
-        <div class="pc-txt"><h3>Классический набор, 8 × 10 мл</h3><p>Чёрная коробка. Восемь композиций, с которых у бренда всё началось</p><span class="pc-go">Подробнее</span></div>
+        <div class="pc-txt"><h3>Классический набор, 8 × 10 мл</h3><p>Восемь композиций в чёрной подарочной коробке, с которых всё началось</p><span class="pc-go">Подробнее</span></div>
       </a>
       <a class="pc reveal" href="tovar/nabor-8-krasnyy.html" style="--a:#E4453A;--a2:#A81E24">
         <div class="pc-img"><img src="assets/img/p-red8.jpg" alt="Набор в красной коробке, 8 × 10 мл" loading="lazy" decoding="async"></div>
@@ -109,24 +112,26 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="kicker">Сценарии дома</p>
-      <h2>Один набор — четыре разных вечера</h2>
+      <h2>Один набор — четыре<br>разных настроения</h2>
+      <p class="lede">Один и тот же набор звучит по-разному утром на кухне и ночью в спальне.
+      Меняете флакон — меняется вся комната.</p>
     </div>
     <div class="scenes">
       <figure class="scene reveal">
-        <img src="assets/gen/scene-kitchen.jpg" alt="Утро на кухне" loading="lazy" decoding="async">
-        <figcaption><h3>Утро на кухне</h3><p>Цитрус и лаймовый базилик — короткий бодрый фон, пока варится кофе.</p></figcaption>
+        <img src="assets/gen/aroma-morning.jpg" alt="Утро на кухне" loading="lazy" decoding="async">
+        <figcaption><h3>Утро на кухне</h3><p>Прохладный цитрус, пока варится кофе, — и кухня перестаёт пахнуть вчерашним ужином.</p></figcaption>
       </figure>
       <figure class="scene reveal">
-        <img src="assets/gen/scene-evening.jpg" alt="Тихий вечер" loading="lazy" decoding="async">
-        <figcaption><h3>Тихий вечер</h3><p>Лаванда с можжевельником и подсветка на минимуме.</p></figcaption>
+        <img src="assets/gen/aroma-day.jpg" alt="День за работой" loading="lazy" decoding="async">
+        <figcaption><h3>День за работой</h3><p>Дождь за окном и что-то травяное на столе, чтобы день не слипся в один серый ком.</p></figcaption>
       </figure>
       <figure class="scene reveal">
-        <img src="assets/gen/scene-guests.jpg" alt="Когда ждёте гостей" loading="lazy" decoding="async">
-        <figcaption><h3>Когда ждёте гостей</h3><p>Груша и фрезия за полчаса до прихода — воздух становится «прибранным».</p></figcaption>
+        <img src="assets/gen/aroma-evening.jpg" alt="Вечер с гостями" loading="lazy" decoding="async">
+        <figcaption><h3>Вечер с гостями</h3><p>Груша и фрезия за полчаса до прихода: воздух становится «прибранным» раньше стола.</p></figcaption>
       </figure>
       <figure class="scene reveal">
-        <img src="assets/gen/scene-gift.jpg" alt="Готовый подарок" loading="lazy" decoding="async">
-        <figcaption><h3>Готовый подарок</h3><p>Коробку не нужно заворачивать: она уже выглядит как подарок.</p></figcaption>
+        <img src="assets/gen/aroma-night.jpg" alt="Перед сном" loading="lazy" decoding="async">
+        <figcaption><h3>Перед сном</h3><p>Лаванда, приглушённый свет и никаких резких нот — вечер закрывается сам собой.</p></figcaption>
       </figure></div>
   </div>
 </section>
@@ -167,10 +172,13 @@
     <div class="buy reveal">
       <div>
         <p class="kicker">Где купить</p>
-        <h2>Вся линейка — на Wildberries</h2>
-        <p class="lede">Там актуальные цены, наличие и живые отзывы. Мы не дублируем
-        цены на сайте, чтобы они никогда не расходились с реальностью.</p>
-        <a class="btn" href="https://www.wildberries.ru/catalog/0/search.aspx?search=glowaroma" target="_blank" rel="noopener">Перейти в магазин</a>
+        <h2>Вся линейка — на маркетплейсах</h2>
+        <p class="lede">Мы продаём на двух площадках. Там актуальные цены, наличие и живые
+        отзывы — на сайте мы их не дублируем, чтобы они не расходились с реальностью.</p>
+        <div class="hero-cta">
+          <a class="btn" href="https://www.wildberries.ru/catalog/0/search.aspx?search=glowaroma" target="_blank" rel="noopener">Магазин на Wildberries</a>
+          <a class="btn btn-line" href="https://www.ozon.ru/seller/glowaroma/" target="_blank" rel="noopener">Магазин на Ozon</a>
+        </div>
       </div>
       <div class="buy-list">
         <a href="catalog.html?f=sets">Наборы аромамасел →</a>
@@ -197,6 +205,7 @@
       <h4>Где купить</h4>
       <div class="ftr-links">
         <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=glowaroma" target="_blank" rel="noopener">Магазин на Wildberries</a>
+        <a href="https://www.ozon.ru/seller/glowaroma/" target="_blank" rel="noopener">Магазин на Ozon</a>
         <a href="otzyvy.html">Отзывы покупателей</a>
         <a href="chestno.html">Честно о минусах</a>
       </div>
